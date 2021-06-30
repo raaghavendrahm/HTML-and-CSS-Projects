@@ -1,0 +1,375 @@
+@import 'variables';
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// MAIN STYLING (ELEMENTS WITHOUT CLASSES)
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7em;
+}
+
+a {
+  color: $dark-color;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  padding-bottom: 20px;
+}
+
+p {
+  margin: 10px;
+}
+
+// SHARED CLASSES
+// Buttons
+%btn-shared {
+  display: inline-block;
+  font-size: 18px;
+  padding: 13px 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+// UTILITIES
+.container {
+  margin: auto;
+  max-width: 1100px;
+  overflow: auto;
+  padding: 0 20px;
+}
+
+// BUTTONS
+.btn {
+  &-light {
+    @extend %btn-shared;
+    background: $light-color;
+    color: $dark-color;
+  }
+
+  &-dark {
+    @extend %btn-shared;
+    background: $dark-color;
+    color: $light-color;
+  }
+}
+
+// BACKGROUNDS
+.bg-light {
+  background: $light-color;
+  color: $dark-color;
+}
+
+.bg-dark {
+  background: $dark-color;
+  color: $light-color;
+}
+
+.bg-secondary {
+  background: $secondary-color;
+  color: $dark-color;
+}
+
+// PADDINGS
+.py-1 {
+  padding: 10px 0;
+}
+
+.py-2 {
+  padding: 20px 0;
+}
+
+.py-3 {
+  padding: 30px 0;
+}
+
+// MARGINS
+.my-1 {
+  margin: 10px 0;
+}
+
+.my-2 {
+  margin: 20px 0;
+}
+
+.my-3 {
+  margin: 30px 0;
+}
+
+// TEXTS
+.text-secondary {
+  color: $secondary-color;
+}
+
+.l-heading {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+// HOME PAGE
+
+// Navbar
+
+#navbar {
+  color: $light-color;
+
+  .container { 
+    overflow: hidden; // to remove the scroll bar in the navbar
+  }
+ 
+  .flex-container-main {
+    display: flex;
+    justify-content: space-between;
+    
+    a {
+      color: $light-color;
+    }
+  
+    ul {
+      list-style: none;
+    }
+
+    h1 {
+      padding-top: 20px;
+    }
+    
+  }
+
+  .flex-container-li {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+
+    a {    
+      padding: 23px;
+      text-align: center;
+    }
+
+    a:hover,
+    a.current {
+      background: #444;
+      color: $secondary-color;
+    }
+  }  
+}
+
+// Showcase
+#showcase {
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
+  height: 600px;
+
+  .flex-container-showcase {
+    color: $light-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 170px;
+
+    h1 { 
+      font-size: 60px;
+      line-height: 1.2em;
+    }
+
+    p { 
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 20px;
+      line-height: 1.7em;
+    } 
+    // btn class is defined in the shared, and utility section
+
+    a.btn-dark:hover {
+      background: $secondary-color;
+      color: $dark-color;
+    }
+  }  
+}
+
+// Home Info
+#home-info {
+  background: $dark-color;
+  color: $light-color;
+  height: 450px;
+
+  .grid-container-home-info-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-img {
+    background: url('../img/photo-1.jpg') no-repeat;
+    min-height: 100%;
+  } 
+
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    text-align: center;
+    overflow: hidden;
+
+    p {
+      padding-bottom: 30px;
+    }
+
+    a.btn-light:hover {  // this can be only a:hover
+      background: $secondary-color;
+    }
+  }
+
+}
+
+// Features
+#features {
+  .grid-container-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .box {
+      padding: 50px;
+      text-align: center;
+
+      i {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// ABOT PAGE
+
+// About Info
+#about-info {
+  .grid-container-about-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-image {
+  //   min-height: 100%;
+
+    img {
+      display: block;
+      margin: auto;
+      width: 70%;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Testimonials
+#testimonials {
+  height: 100%;
+  background: url(../img/test-bg.jpg) no-repeat center center/cover;
+  padding-top: 100px;
+
+  h2 {
+    color: $light-color;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 40px;
+  }
+
+  .testimonial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    opacity: 0.9;
+    // Opacity makes everything transparent i.e., photo, text, and background. So, we have used only 0.9. To make only background transparent and keep photo and text as it is, we have to add an "overlay", that we will learn later.
+
+    img {
+      width: 100px;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+  }  
+}
+
+// CONTACT PAGE
+
+// Contact Form
+#contact-form {
+  background: $light-color;
+
+  p {
+    margin-left: 0px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: $secondary-color;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background: $secondary-color;
+    color: $dark-color;
+  }
+}
+
+#contact-info {
+  .grid-container-contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .box {
+      padding: 50px;
+      text-align: center;
+
+      i {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+
+// FOOTER
+
+// Main Footer
+#main-footer {
+  text-align: center;
+  background: #444;
+  // min-height: 100%;
+  color: $light-color;
+  padding: 10px;
+}
+
+// IMPORT MEDIA QUERIES
+@import 'media';

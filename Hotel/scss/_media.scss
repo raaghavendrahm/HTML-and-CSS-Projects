@@ -1,0 +1,120 @@
+@media(max-width: 768px) {
+  // HOME PAGE
+
+  // Navbar
+  #navbar {
+    .flex-container-main {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+           
+      h1 {
+        text-align: center;
+        padding-bottom: 0px;
+      }
+    }  
+
+    .flex-container-li {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      // padding-top: 20px;    
+
+      a {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-bottom: #444 dotted 1px;
+        width: 100%;
+      }
+
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+      }
+    }
+  }
+
+  // Showcase
+  #showcase {
+    height: 100%;
+
+    .flex-container-showcase {
+      padding-top: 70px;
+      padding-bottom: 30px;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+
+  // Home Info
+  #home-info {
+    // height: 550px;
+
+    .grid-container-home-info-main {
+      grid-template-columns: 1fr;
+    }
+
+    .info-img {
+      display: none;
+    } 
+  }
+
+  // Features
+  #features {
+    .grid-container-features {
+      grid-template-columns: 1fr;
+    } 
+  }    
+
+  // ABOUT PAGE
+  
+  // About Info
+  #about-info {
+    .grid-container-about-info {
+      grid-template-columns: 1fr;
+    }
+
+    .info-text {
+      margin-bottom: 20px;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+
+  // Testimonials
+  #testimonials {
+    padding-top: 50px;
+
+    h2 {
+      line-height: 1.2;
+    }
+
+    .testimonial {
+      flex-direction: column;
+
+      img {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  // CONTACT PAGE
+
+  // Contact Info
+  #contact-info {
+    .grid-container-contact-info {
+      grid-template-columns: 1fr;
+    }
+
+    .box {
+      border-bottom: #444 dotted 1px;
+    }
+  }
+}
