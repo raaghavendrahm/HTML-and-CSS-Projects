@@ -1,6 +1,6 @@
 # Project 1: Hotel-Website
 
-[Live Demo On Netlify](https://focused-thompson-2db155.netlify.app/index.html)
+[Click here](https://focused-thompson-2db155.netlify.app/index.html) for the live demo on Netlify.
 
 > This is a Hotel Website to showcase the hotel's facility with a working contact form. This website can be used by any hotel as their informative website with a contact form to generate potential leads.
 
