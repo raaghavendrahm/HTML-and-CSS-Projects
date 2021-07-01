@@ -1,25 +1,25 @@
 # Project 1: Hotel-Website
 
-[Live Demo](https://focused-thompson-2db155.netlify.app/index.html)
+[Live Demo On Netlify](https://focused-thompson-2db155.netlify.app/index.html)
 
-A Hotel Website to showcase the hotel's facility with a working contact form. This website can be used by any hotel as their informative website with a contact form to generate potential leads.
+> This is a Hotel Website to showcase the hotel's facility with a working contact form. This website can be used by any hotel as their informative website with a contact form to generate potential leads.
 
-- This is a website of a hypothetical hotel 'HBT'. This is a 3-page website. The "Home" section holds primary images of the hotel and a re-directory link to other pages.
+- This is a website of a hypothetical hotel `HBT`. This is a 3-page website. The `Home` section holds primary images of the hotel and a re-directory link to other pages.
 The home section talks about the history of the hotel and the facilities it provides to its customers.
 
-- The "About" section talks about the hotel and testimonials of the old customers.
+- The `About` section talks about the hotel and testimonials of the old customers.
 
-- The "Contact" section has a working contact form with validation, that is created using Netlify form submission for data collection.
+- The `Contact` section has a working contact form with validation, that is created using Netlify form submission for data collection.
 
-- Icons are used from Font Awesome.
+- Icons are used from `Font Awesome`.
 
-- Flexbox is used for creating layouts.
+- `Flexbox` is used for creating layouts.
 
-- A request callback form is created with form validation that is created using Netlify form submission for data collection.
+- A request callback form is created with form validation that is created using `Netlify Forms` for data collection.
 
-- The website is made responsive to all the devices (desktops, tablets, and mobile phones).
+- The website is made `responsive` to all the devices (desktops, tablets, and mobile phones).
 
-- CSS is precompiled using SCSS for the structured coding.
+- CSS is precompiled using `SCSS` for the structured coding.
 
 - The website is hosted on [Netlify](https://www.netlify.com/).
 
