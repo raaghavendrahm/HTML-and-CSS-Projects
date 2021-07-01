@@ -1,0 +1,106 @@
+// Importing the partials
+@import 'variables';
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: white;
+  overflow: hidden; // as we don't want to see any scroll bars
+}
+
+// Page Colors
+#page-1 {
+  background: $page-1-color;
+
+  h1 {
+    transform: translateY(-1200px);
+    animation: heading $animate-speed forwards ease-in;
+  }
+
+  p {
+    transform: translateX(-1800px);
+    animation: text $animate-speed forwards ease-in 1s;
+  }
+  
+
+  @keyframes heading {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes text {
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+#page-2 {
+  background: $page-2-color;
+}
+
+#page-3 {
+  background: $page-3-color;
+}
+
+#page-4 {
+  background: $page-4-color;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+
+  h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin: 1rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #f4f4f4;
+    padding: 1rem 2rem;
+    color: #333;
+    text-decoration: none;
+    border: none;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    &-dark {
+      background: #333;
+      color: #fff;
+
+      &:hover {
+        background: #fff;
+        color: #333;
+      }
+    }
+  }
+
+  
+}
+ 
