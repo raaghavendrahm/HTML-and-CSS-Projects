@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: white;
+  overflow: hidden;
+}
+
+#page-1 {
+  background: steelblue;
+}
+
+#page-1 h1 {
+  -webkit-transform: translateY(-1200px);
+          transform: translateY(-1200px);
+  -webkit-animation: heading 2s forwards ease-in;
+          animation: heading 2s forwards ease-in;
+}
+
+#page-1 p {
+  -webkit-transform: translateX(-1800px);
+          transform: translateX(-1800px);
+  -webkit-animation: text 2s forwards ease-in 1s;
+          animation: text 2s forwards ease-in 1s;
+}
+
+@-webkit-keyframes heading {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes heading {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes text {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes text {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+#page-2 {
+  background: tan;
+}
+
+#page-3 {
+  background: teal;
+}
+
+#page-4 {
+  background: slateblue;
+}
+
+.page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+.page h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.page p {
+  font-size: 1.3rem;
+}
+
+.page .btn {
+  display: inline-block;
+  background: #f4f4f4;
+  padding: 1rem 2rem;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page .btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.page .btn-dark {
+  background: #333;
+  color: #fff;
+}
+
+.page .btn-dark:hover {
+  background: #fff;
+  color: #333;
+}
+/*# sourceMappingURL=main.css.map */
