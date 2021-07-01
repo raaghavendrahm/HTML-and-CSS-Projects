@@ -1,0 +1,108 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $light-color;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar {
+  .main {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    li {
+      color: $dark-color;
+      list-style: none;
+      padding: 1rem;
+      position: relative;
+      
+      &:hover {
+        cursor: pointer; // to get pointer on Services and Blogs which are lis, not links.
+        background: $primary-color;
+        color: #fff;
+
+        & a {
+          color: #fff; // to get the links also white font color on hover
+        }
+
+        // To show the hidden dropdown menu items on hover
+        & ul {
+          display: block;
+          position: absolute;
+          left: 0;
+          width: 200px;
+          margin-top: 1rem;
+
+          & li {
+            background: #e7e7e7;
+
+            a {
+              color: $dark-color;
+            }
+
+            &:hover {
+              background: #e0e0e0;
+              
+            }
+          }
+        }
+      }
+    }
+
+    .blog {
+      li {
+        display: flex;
+        justify-content: space-between; // to push the span and the text apart
+
+        &:hover span {
+          background: $secondary-color; // to change the background of span when we hover on the li of blog
+        }
+
+        span {
+          background: $primary-color;
+          padding: 0.2rem 0.5rem;
+          text-align: center;
+          font-size: 0.8rem;
+          border-radius: 5px;
+          color: #fff;         
+        }
+      }
+    }
+
+    a {
+      color: $dark-color;
+      text-decoration: none;
+    }
+
+    // Hide the menu items inside the drop down menu title
+    .services, .blog {
+      display: none;
+    }
+  }
+}
+
+#showcase {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: $primary-color;
+  padding: 0 2rem;
+  
+  h1 {
+    font-size: 4rem;
+    color: #fff;
+  }
+}
+
+// Importing media query
+@import 'media';

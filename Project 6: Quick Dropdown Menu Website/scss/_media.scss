@@ -1,0 +1,12 @@
+@media(max-width: 600px) {
+  #navbar {
+    .main {
+      display: block;
+
+      li:hover ul {
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
+}
