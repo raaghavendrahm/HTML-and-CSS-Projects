@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: #425b84;
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+#main-header {
+  background: #5b7bb4;
+  padding: 4rem 0;
+}
+
+#main-header .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#main-header .container h1 {
+  font-size: 2.3rem;
+}
+
+#timeline ul {
+  padding: 50px 0;
+}
+
+#timeline ul li {
+  list-style: none;
+  position: relative;
+  width: 6px;
+  background: #fff;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+#timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 1rem;
+  background: #5b7bb4;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#timeline ul li:nth-child(odd) div {
+  left: 40px;
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+}
+
+#timeline ul li:nth-child(even) div {
+  left: -434px;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+}
+
+#timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  background: inherit;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 50%;
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+#timeline ul li div::before {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0px;
+  border-color: transparent #5b7bb4 transparent transparent;
+}
+
+#timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0px 8px 16px;
+  border-color: transparent transparent transparent #5b7bb4;
+}
+
+#timeline ul li.show div {
+  -webkit-transform: none;
+          transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+#timeline ul li.show::after {
+  background: #5b7bb4;
+}
+
+@media (max-width: 900px) {
+  #timeline ul li div {
+    width: 250px;
+  }
+  #timeline ul li:nth-child(even) div {
+    left: -284px;
+  }
+}
+
+@media (max-width: 600px) {
+  #timeline ul li {
+    margin-left: 20px;
+  }
+  #timeline ul li div {
+    width: calc(100vw - 90px);
+  }
+  #timeline ul li:nth-child(even) div {
+    left: 40px;
+  }
+  #timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent #5b7bb4 transparent transparent;
+  }
+}
+/*# sourceMappingURL=main.css.map */
