@@ -2,8 +2,6 @@
 
 [Click here](https://focused-thompson-2db155.netlify.app/index.html) for the live demo  of the website on [Netlify](https://www.netlify.com/).
 
-[Click here](https://raaghavendrahm.github.io/HCP_1-Hotel-Website/index.html) for the live demo  of the website on [GitHub Pages](https://pages.github.com/).
-
 > This is a Hotel Website to showcase the hotel's facility with a working contact form. This website can be used by any hotel as their informative website with a contact form to generate potential leads.
 
 - This is a website of a hypothetical hotel `HBT`. This is a 3-page website. The `Home` section holds primary images of the hotel and a re-directory link to other pages.
@@ -23,7 +21,7 @@ The home section talks about the history of the hotel and the facilities it prov
 
 - CSS is precompiled using `SCSS` for the structured coding.
 
-- The website is hosted both on [Netlify](https://www.netlify.com/) and [GitHub Pages](https://pages.github.com/).
+- The website is hosted on [Netlify](https://www.netlify.com/).
 
 - The project is a part of the learning from [Brad Traversy](https://github.com/bradtraversy)'s course on Udemy. The idea credit is his. I have understood the concepts and learned them by building this on my own with a bare minimum reference of source code (only when my efforts couldn't clear the roadblock). The way of execution is modified as per my viewpoint whenever is necessary.
 
