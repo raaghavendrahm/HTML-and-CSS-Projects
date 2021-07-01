@@ -2,6 +2,8 @@
 
 [Click here](https://focused-thompson-2db155.netlify.app/index.html) for the live demo  of the website on [Netlify](https://www.netlify.com/).
 
+[Click here](https://raaghavendrahm.github.io/HCP_1-Hotel-Website/index.html) for the live demo  of the website on [GitHub Pages](https://pages.github.com/).
+
 > This is a Hotel Website to showcase the hotel's facility with a working contact form. This website can be used by any hotel as their informative website with a contact form to generate potential leads.
 
 - This is a website of a hypothetical hotel `HBT`. This is a 3-page website. The `Home` section holds primary images of the hotel and a re-directory link to other pages.
