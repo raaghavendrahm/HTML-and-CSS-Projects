@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar .main {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#navbar .main li {
+  color: #333;
+  list-style: none;
+  padding: 1rem;
+  position: relative;
+}
+
+#navbar .main li:hover {
+  cursor: pointer;
+  background: coral;
+  color: #fff;
+}
+
+#navbar .main li:hover a {
+  color: #fff;
+}
+
+#navbar .main li:hover ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 200px;
+  margin-top: 1rem;
+}
+
+#navbar .main li:hover ul li {
+  background: #e7e7e7;
+}
+
+#navbar .main li:hover ul li a {
+  color: #333;
+}
+
+#navbar .main li:hover ul li:hover {
+  background: #e0e0e0;
+}
+
+#navbar .main .blog li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#navbar .main .blog li:hover span {
+  background: chocolate;
+}
+
+#navbar .main .blog li span {
+  background: coral;
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  color: #fff;
+}
+
+#navbar .main a {
+  color: #333;
+  text-decoration: none;
+}
+
+#navbar .main .services, #navbar .main .blog {
+  display: none;
+}
+
+#showcase {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50vh;
+  background: coral;
+  padding: 0 2rem;
+}
+
+#showcase h1 {
+  font-size: 4rem;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  #navbar .main {
+    display: block;
+  }
+  #navbar .main li:hover ul {
+    width: 100%;
+    position: relative;
+  }
+}
+/*# sourceMappingURL=main.css.map */
