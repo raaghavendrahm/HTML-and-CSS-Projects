@@ -1,0 +1,246 @@
+@import 'variables';
+
+// Reset
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+}
+
+#showcase {
+  background: $primary-color;
+  color: #fff;
+  height: 100vh;
+  position: relative; // to position the overlay absolute w.r.t this
+
+  &::before {
+    content: '';
+    background: url(../img/showcase.jpg) no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; // to push the image behind
+    // also note that, we haven't used opacity for see through effect as we have made the colors transparent using 'alpha' of rgba(). Alpha is set for both the primary and overlay color. So, alpha of primary color gives this see through effect and alpha of overlay color gives see through effect of the backgrounf when hamburger is clicked.
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 3rem;
+  }
+
+  .showcase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; // this won't make the text to center as the height of showcase-continer is only that much and down next we set the height of this to 100% which makes it to have the height of its parent, which is showcase with 100vh height.
+    text-align: center;
+    height: 100%; // now the text will be vertically center.
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    background: $primary-color;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    transition: opacity 0.75s ease-in-out;
+    border: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  // the above code keeps the hamburger always fixed at the top left corner and look above everything else with z-index 1.
+
+  // Checkbox sits on hamburger, and it will be invisible. 'checkbox' is only for checking and unchecking functionality. ALl the css for hamburger is done for 'hamburger' class.
+
+  .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; // keeps above everything
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    // makes the checkbox 50px x 50px size
+    opacity: 0; // makes it to disapper, but it is there. So, wherever is clicked in that area, it will be checked and unchecked.
+
+    // this positions the checkbox. Now, let's start with hamburger
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // positioned same as the checkbox
+    z-index: 1; // kept below the checkbox
+    width: 60px;
+    height: 60px;
+    // makes the hamburger 60px x 60px size
+    padding: 1rem;
+    background: $primary-color; // looks transparent because of alpha
+    
+    // Now, we want this hamburger to be a flexbox as the empty div inside it will be having the horizontal lines and those will be flex items sitting one above the other
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Now let's create the 3 horizontal lines
+    & > div { // selects the immediate div which is empty
+      position: relative;
+      flex: none;
+      background: #fff; // color of the line
+      height: 2px; // height of the line
+      width: 100%; // width of the line
+      transition: all 0.4s ease; // transition for transforming 3 horizontal lines rotating to X
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+
+      // The above creates the central line, let's create the top and bottom lines using before and after pseudo selector:
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -10px; // to move 10px above
+        height: 2px; // height of the line
+        width: 100%; // width of the line
+        background: inherit; // color of the line, which is white
+      }
+
+      // The above gives the top line. ALl the properties are common for both the lines, but the position:
+      &::after {
+        top: 10px; // gives a line below.
+        // This gives the hamburger with 3 horizontal lines.
+      }
+    }
+  }
+
+  // Now the lines are ready, now on checking the toggler (checkbox), it should tranform to an X. Let's do it:
+
+  // Toggler Animation
+  // Note that this could have been put under '.toggler' which is written above and continued as '&:checked'. But, to make the step by step understanding, it is written again here:
+  .toggler:checked { 
+    // this should happen to the div inside the hamburger only when the toggler is 'checked'
+    + .hamburger > div { // please note '+'
+      transform: rotate(135deg); 
+      // this rotates all the lines 135 deg when chekced. But we want it to tranform into an X
+
+      &::before, &::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+    }
+
+    // Rotate X on hover in check condition:
+    &:hover +.hamburger > div {
+      transform: rotate(225deg);
+    }
+  }
+
+  // Now hamburger is set. But, the menu items are visible there always. We need them to appear when the toggler is checked and we want them in the center of the screen. Let's do it.
+
+  // Setting condition for 'checked'. So, the the below will be executed only when the toggler is checked and correspoding properties change to show the menu items in the way we want.
+  .toggler:checked ~ .menu {
+    visibility: visible;
+
+    & > div {
+      transform: scale(1);
+      transition-duration: $menu-speed;
+
+      & > div {
+        opacity: 1;
+        transition: opacity 0.4s ease 0.4s;
+      }
+    }
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden; // this is commented first to do the design and later made active so that it won't be visible unless checked.
+    // It will be set to 'visible' in checked condtion  
+
+    overflow: hidden;
+
+    // Let's bring the menu item to the page center
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Let's create the background:
+    & > div {
+      background: $overlay-color;
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vh;
+      // the above two expands the background completely
+
+      // Let's bring menu items back
+      display: flex;
+      flex: none; // to make the overlay background to not to stuck with the width, but spread across and outside the screen width.
+      align-items: center;
+      justify-content: center;
+      transform: scale(0); // commented for now and will be removed later
+      // It will be set to 1 for checked condition
+
+      transition: all 0.4s ease;
+
+      & > div {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vh;
+        opacity: 0; // commented for now and will be removed later
+        // It will be set to 1 for checked condition
+
+        transition: opacity 0.4s ease; // this is to trasnition the menu items after the background is filled up (not simultaneously with the backgroud)
+
+        & > ul > li {
+          list-style: none;
+          color: #fff;
+          font-size: 1.5rem;
+          padding: 1rem;
+
+          & > a {
+            color: inherit; // will be white from the parent above
+            text-decoration: none;
+            transition: color 0.4s ease; // for hover color change
+
+            &:hover {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
