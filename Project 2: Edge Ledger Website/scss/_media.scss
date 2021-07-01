@@ -1,0 +1,84 @@
+@media(max-width: 768px) {
+  // Navbar
+  .navbar {
+    flex-direction: column;
+    height: 120px;
+    padding: 20px;
+
+    a {
+      padding: 10px 10px;
+      margin: 0 3px;
+    }
+  }
+
+  // Hero
+  .hero {
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .content.blog {
+      h1 {
+        margin: 100px 0 20px;
+        padding: 20px 0;
+       
+      }
+    }
+  }
+
+  // About: Icons
+  .icons {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
+
+  // About: Solutions
+  .solutions {
+    flex-direction: column;
+
+    &.flex-reverse {
+      flex-direction: column;
+    }
+  }
+
+  // Cases
+  #cases {
+    .row-1, .row-2 {
+      flex-direction: column;
+
+      .last-img {
+        width: 100%;
+        height: 100%;
+      }
+      .img {
+        width: 100%;
+      }
+    }
+  }
+
+  // Blog
+  #blog {
+    flex-direction: column;
+  }
+
+  // Team
+  #team {
+    .row-1 {
+      flex-direction: column;
+
+      .img {
+        width: 70%;
+      }
+    }
+  }
+
+  // Contact
+  #contact {
+    flex-direction: column;
+  }
+}

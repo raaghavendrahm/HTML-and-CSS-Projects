@@ -1,0 +1,447 @@
+// Importing the partials
+@import 'variables';
+@import 'utilities';
+
+// Importing google font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+// Resetting the overall format
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Setting the body styling
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: $white-color;
+  color: $dark-color;
+  line-height: 1.6;
+}
+
+// Taking off the bullets
+ul {
+  list-style: none;
+}
+
+// Changing the link color and removing the underline
+a {
+  color: $dark-color;
+  text-decoration: none;
+}
+
+// Lowering the font weight for large headings and lowering the line height. This makes the lines to not vertically move apart a lot when the headings are multiple lines
+h1, h2 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+// As the margins are reset for p, adding a reasonable margin for p top and bottom
+p {
+  margin: 10px 0;
+}
+
+// Making the images to fill 100% of their containers
+img {
+  width: 100%;
+}
+
+// INDEX PAGE
+
+// Navbar
+
+// Navbar is made flex container and the flex items are the logo and the navbar. These flex items are made vertically centre and horizontally apart (space-between)
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $dark-color;
+  color: $white-color;
+  opacity: 0.8;
+  height: 70px;
+  position: fixed; // to fix the navbar 
+  top: 0px; // to stick it to the top
+  width: 100%; // to set the width to 100% of its parent
+  padding: 0 30px; // to push the logo and the ul away from the edges
+
+  transition: 0.5s; // for bounce effect of the navbar (in combination with the JS)
+
+  h1.logo {
+    font-weight: 400; // to make the logo bolder (300 to 400)
+  }
+
+  ul {
+    display: flex;
+  }
+
+  a {
+    color: $white-color;
+    padding: 10px 20px;
+    margin: 0 5px;
+  }
+
+  a:hover {
+    border-bottom: $primary-color 2px solid;
+  }
+  
+  &.top { 
+    background: transparent;
+  }
+  // the above colde is to keep the navbar trasparent before scolling. But it keeps it transparent always, which we don't want. We want it to be transparent only when it is at the top of the window (not yet scrolled) and we want the dark background back when we move a specific distance (100px). That is done with JS, which is in the html file. That is, when we scroll down to greater than 100px from the top, the "top" class is removed, which results is getting back the dark background. And when the scroll is less than 100px, the background of navbar will be transparent.
+}
+
+// Hero Section & Overlay
+.hero {
+  background: url(../img/home/showcase.jpg) no-repeat center center/cover;
+  height: 100vh;
+  color: $white-color;
+  position: relative; // to position the overlay absolute next.
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; // to use full height of its parent (100vh), hero.
+    padding: 0 20px; // just to create reasonable space for small screens.
+
+    h1 {
+      font-size: 55px;
+    }
+
+    p {
+      font-size: 23px;
+      max-width: 600px;
+      margin: 20px 0 30px;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute; // to fix the overlay. That is why its parent hero was positioned relative.
+    top: 0;
+    left: 0;
+    height: 100%; // to cover the complete space of its parent
+    width: 100%; // to cover the complete space of its parent
+    background: rgba(0,0,0,0.6);
+  }
+
+  * {
+    z-index: 10;
+  }
+
+  &.blog {
+    background: url('../img/home/blog.jpg') no-repeat center center/cover;
+    height: 30vh;
+  }
+}
+
+// About: Icons
+.icons {
+  padding: 30px;
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  i {
+    background: $primary-color;
+    color: $white-color;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  
+    & > div {
+      padding: 20px;
+    }
+  }
+}
+
+// About: Solutions
+.solutions {
+  
+  display: flex;
+  // flex-wrap: wrap;
+  // width: 100%;
+   
+  .column {
+    flex: 1; // as a child of the parent - solutions (to make sure both the columns are sharing equal widths of 50%)
+    display: flex; // as a parent of children column-1 and column-2
+
+    .column-1 { 
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; // to avoid the image squeezing when window is scaled down.
+      }
+    }
+  }
+
+  .column-2 {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px;
+
+    h2 {
+       font-size: 40px;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+  }
+  
+  &.flex-reverse {
+    flex-direction: row-reverse;
+  }
+}  
+
+// Cases
+#cases {
+  .section-header {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+
+  padding: 20px 20px 40px;
+
+  .row-1, .row-2 {
+    display: flex;
+
+    // The last image is handled this way manually as its size was different after using 'lightbox2' libarary. Without it, no issues.
+    .last-img {
+      width: 316px;
+      height: 211px;
+    }
+
+    .img {
+      flex: 1;
+      width: 100px;
+      margin: 5px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+ 
+// Blog
+#blog {
+  display: flex;
+  flex-direction: row-reverse;
+  // flex-wrap: wrap;
+  // width: 100%;
+   
+  .column {
+    flex: 1; // as a child of the parent - solutions (to make sure both the columns are sharing equal widths of 50%)
+    display: flex; // as a parent of children column-1 and column-2
+
+    .column-1 { 
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; // to avoid the image squeezing when window is scaled down.
+      }
+    }
+  }
+
+  .column-2 {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px;
+
+    h2 {
+       font-size: 40px;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+  }
+}  
+
+// Team
+#team {
+  .section-header {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+
+  padding: 20px 20px 40px;
+
+  .row-1 {
+    display: flex;
+
+    .item {
+      flex: 1;
+      text-align: center;
+      margin: 20px;
+      
+      .img {
+        border-radius: 50%;
+      }
+
+      p.bold {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Contact
+#contact {
+  display: flex;
+  // flex-wrap: wrap;
+  // width: 100%;
+   
+  .column {
+    flex: 1; // as a child of the parent - solutions (to make sure both the columns are sharing equal widths of 50%)
+    display: flex; // as a parent of children column-1 and column-2
+
+    .column-1 { 
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; // to avoid the image squeezing when window is scaled down.
+      }
+    }
+  }
+
+  .column-2 {
+    padding: 70px 30px 30px;
+    width: 100%;
+
+    h2 {
+       font-size: 40px;
+    }
+
+    .callback-form {
+      width: 100%;
+      padding: 20px 0;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        margin-bottom: 15px;
+      }
+
+      input {
+        width: 100%;
+        padding: 4px;
+        height: 40px;
+        border: #f5f5f5 1px solid;
+
+        &:focus {
+          outline-color: $primary-color;
+        }
+      }
+
+      input.btn-primary {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      // To not to display the up and down arrow in number input
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+} 
+
+// POST
+.post {
+  padding: 50px 30px;
+
+  h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: #ccc solid 1px;
+  }
+
+  .meta {
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 300px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 30px;
+  }
+}
+
+
+// FOOTER
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 200px;
+
+  a {
+    color: $white-color;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .social {
+    a {
+      margin: 0 20px;
+    }
+  }
+}
+
+// IMPORT MEDIA QUERIES
+@import 'media';
