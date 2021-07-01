@@ -1,0 +1,234 @@
+// Importing the partials
+@import 'variables';
+@import 'utilities';
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// GENERAL
+body {
+  font-family: 'Lato', sans-serif; // staatliches will be used for headings
+  line-height: 1.5;
+  background: $light-color;
+}
+
+a {
+  color: $dark-color;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+img {
+  width: 100%; // normally images burst outside their containers and this prevents that by containing them to 100% of their containers.
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: 0.55rem;
+  line-height: 1.3;
+}
+
+// HOME PAGE 
+
+// Navbar
+#main-nav {
+  background: #fff;
+  position: sticky; // to keep the navbar always sticked to the top
+  top: 0; // 0 units from top, meaning completely to the top
+  z-index: 2; // to always stay on the top in visibility
+
+  .container {
+     // let's make the container grid so that all of them inside are grid items (logo, social icons, and ul)
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr;
+    padding: 1rem;
+    align-items: center; // align-items and justify-content properties are used for grid (parent) too like flexbox. ALso justify-self etc on the gird items.
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  // To handle the ul, using flex is better. Before using it, let's push it to end and then make it a flexbox
+  ul {
+    justify-self: end; // pushes to the extreme right (applied for grid item)
+    display: flex;
+
+    a {
+      padding: 0.75rem;
+      font-weight: bold;
+
+      &.current {
+        background: $primary-color;
+        color: #fff;
+      }
+
+      &:hover {
+        background: $light-color;
+        color: $dark-color;
+      }
+    }
+  }
+
+  .social {
+    justify-self: center; // as a grid item
+
+    i {
+      color: #777;
+      margin-right: 0.5rem;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Showcase
+#showcase {   
+  color: #fff;
+  background: $dark-color; // to get the darker see-through with background image overlay
+  padding: 2rem;
+  position: relative; // to set the image overlay absolute
+
+  &::before {
+    content: '';
+    background: url('../img/featured.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    // Now the overlay is ready but the texts are also under see-through. Let's bring them to the top using z-index in the section below
+  }
+
+  // Before that let's pull the contents to one side as per the requirement. It can be done using flexbox too. But let's experiment with grid.
+  .showcase-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // second fr is empty, content will be only to the left
+    justify-self: center;
+    align-items: center;
+    height: 50vh;
+
+    // Now, let's bring the text to top with z-index
+    .showcase-content {
+      z-index: 1; // now the text will be clearly visible
+      
+      p {
+        margin-bottom: 1rem; // to create space between p and the button
+      }
+    }
+  }
+}
+
+// Home Articles
+#home-articles {
+  .articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+
+    // for first and last cards, they also shall be made grid to align the image and texts using 'card-grid' class
+
+    // Or to make it more general without giving 'card-grid' class name, it can be written as: > *:first-child {} for the first card and > *:last-child {} for the last card so that even though the article is changed to a div, it still works. Now, let's go with a class creation of 'card-grid'.
+
+    // But note that, the span value will be different and that will be taken with another class 'span-2' for the last one.
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+      align-items: center;
+
+      // Now to make it look proper, let's span it
+      grid-column: 1 / span 2;
+    }
+
+    .span-2 {
+      grid-column: 2 / span 2;
+    }
+
+    // Now, our article layout is ready. Now, we have to add the backgrounds wherever needed.
+  }
+}
+
+// Footer
+#main-footer {
+  background: $dark-color;
+  color: #fff;
+
+  img {
+    width: 150px;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+
+    // Now, let's make the last grid item (5th) to span across
+    & >*:last-child {
+      background: #444;
+      grid-column: 1 / span 4;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    & input[type = 'email'] {
+      width: 90%;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem; // to push the button down to create space
+    }
+
+    & input[type = 'submit'] {
+      width: 90%;
+    }
+
+    // 'list' is handled in utility class
+  }
+}
+
+// ABOUT PAGE
+// Styling for about.html is taken care in utility class.
+
+// ARTICLE PAGE
+// Note that page-container class is handled under utility class which is common for ABOUT and ARTICLE pages. Rest are handled here which are specific to ARTICLE page.
+
+#article {
+  .meta {
+    // grids are better for outside layouts as we have used and it makes it very easy as it is 2d. To align these items in meta (or for navbar) flexbox is better as it is simple to handle 1d. However, grid can be used too
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eee;
+    padding: 0.5rem;
+
+    // Still the category is not propery centered, let's correct it:
+    .category-ent {
+      margin-top: 0.4rem;
+    }
+
+    // Article page is set!
+
+    // Website is ready, now we have to handle media queries for all screens. That is done under _media.scss.
+  }
+}
+
+// Import Media queries
+@import 'media';

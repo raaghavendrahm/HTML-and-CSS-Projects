@@ -1,0 +1,223 @@
+// Utility classes
+
+// Container
+.container {
+  max-width: $max-width;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+// Category
+%category-shared {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.category {
+  &-sports {
+    @extend %category-shared;
+    background: $sports-color;
+  }
+
+  &-ent {
+    @extend %category-shared;
+    background: $ent-color;
+  }
+
+  &-tech {
+    @extend %category-shared;
+    background: $tech-color;
+  }
+}
+
+// Buttons
+%btn-shared {
+  display: inline-block;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+
+  // hover
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn {
+  &-primary {
+    @extend %btn-shared;
+    background: $primary-color;
+    color: #fff;
+  }
+
+  &-secondary {
+    @extend %btn-shared;
+    background: $secondary-color;
+    color: #fff;
+  }
+
+  &-dark {
+    @extend %btn-shared;
+    background: $dark-color;
+    color: #fff;
+  }
+
+  &-light {
+    @extend %btn-shared;
+    background: $light-color;
+    color: $dark-color;
+  } 
+
+  // full width buttons
+  &-block {
+    @extend %btn-shared;
+    display: block;
+    width: 100%;
+    text-align: center;
+    // background color to be taken care depending on the requirement
+  }
+}
+
+// Padding
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+.p {
+  &-1 {
+    padding: 1rem;
+  }
+  &-2 {
+    padding: 2rem;
+  }
+  &-3 {
+    padding: 3rem;
+  }
+  &-4 {
+    padding: 4rem;
+  }
+}
+
+// Margin
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
+}
+
+.m {
+  &-1 {
+    margin: 1rem;
+  }
+  &-2 {
+    margin: 2rem;
+  }
+  &-3 {
+    margin: 3rem;
+  }
+  &-4 {
+    margin: 4rem;
+  }
+}
+
+// Card
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+// Backgrounds
+.bg {
+  &-primary {
+    background: $primary-color;
+    color: #fff;
+
+    h1, h2, h3, a {
+      color: #fff;
+    }
+  }
+
+  &-secondary {
+    background: $secondary-color;
+    color: #fff;
+    
+    h1, h2, h3, a {
+      color: #fff;
+    }
+  }
+
+  &-dark {
+    background: $dark-color;
+    color: #fff;
+    
+    h1, h2, h3, a {
+      color: #fff;
+    }
+  }
+
+  &-light {
+    background: $light-color;
+    color: $dark-color;
+    
+    h1, h2, h3, a {
+      color: $dark-color;
+    }
+  }
+}
+
+// list
+.list {
+  li {
+    padding: 0.5rem 0;
+    border-bottom: #555 dotted 1px;
+    width: 90%;
+
+    a:hover {
+      color: $primary-color !important;
+    }
+  }
+}
+
+// page-container (for about.html and article.html)
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 1.5rem;
+  margin: 2rem 0;
+
+  // The above creates everything but the right side widget will be across the rows which we don't want. Because, when another widget is added (aside), it should be accomodated there and when ther is only one, it should look as only one and space below for accomodating further. That is done by spanning the left article (main) by n times. The n could be anything. More the n, more widgets can be accomodated to the right. For current layout, let's span it to 3, but it could be 6, 8, 15 anyting.
+
+  & >*:first-child { // or we can target the 'card' class. But made generic
+    grid-row: 1 / span 3; // 'n' could be any number in span n
+  }
+}
+
+.l-heading {
+  font-size: 3rem;
+}

@@ -1,0 +1,96 @@
+// TABLETS
+@media(max-width: 768px) {
+  // HOME PAGE
+  // Navbar
+  #main-nav {
+    .container {
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      grid-gap: 1.2rem;
+
+      .logo, .social, ul {
+        justify-self: center;
+      }
+
+      ul {
+        a {
+          padding: 0.5rem;
+        }
+      }
+       
+    }
+  }
+
+  // Home Articles
+  // We want to have two articles in each row for tablets
+  #home-articles {
+    .articles-container {
+      grid-template-columns: repeat(2, 1fr);
+
+      // spans to be corrected for the first and last child
+      .card-grid {
+        grid-template-columns: 1fr;
+        grid-column: 1;
+      }
+    }
+  }
+}
+
+// The above fixes for tablets. Let's fix the layouts for mobile.
+
+// MOBILE
+@media(max-width: 600px) {
+  // We need to stack grid items one above the other for mobile
+
+  // HOME PAGE
+  // Showcase
+  #showcase {
+    .showcase-container {
+      grid-template-columns: 1fr; // overlay part is set to full width
+    }
+  }
+  // Home articles
+  #home-articles {
+    .articles-container {
+      grid-template-columns: 1fr; // overlay part is set to full width
+    }
+  }
+
+  // Footer
+  #main-footer {
+    .footer-container {
+      grid-template-columns: 1fr; // overlay part is set to full width
+      
+      // The above won't fix the footer as the span for the last child to be removed.
+      & >*:last-child {
+        grid-column: 1;
+      }
+
+      // Let's add a subtle border between the grid items so that they look diffentiated. So, let's add it to the first and second child.
+      & >*:first-child {
+        border-bottom: #444 dotted 1px;
+        padding-bottom: 1rem;
+      } 
+
+      & >*:nth-child(2) {
+        border-bottom: #444 dotted 1px;
+        padding-bottom: 1rem;
+      } 
+    }
+  }
+
+  // ABOUT PAGE & ARTICLE PAGE
+  .page-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    // Clear the span for articles to the left
+    & >*:first-child {
+      grid-row: 1;
+    }
+
+    .l-heading {
+      font-size: 2rem;
+    }
+  }
+}
