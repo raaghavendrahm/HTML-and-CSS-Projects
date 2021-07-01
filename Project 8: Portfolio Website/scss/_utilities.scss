@@ -1,0 +1,186 @@
+// Container
+.container {
+  max-width: $website-width;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 1.5rem;
+}
+
+// Button
+%btn-shared {
+  display: inline-block;
+  border: none;
+  padding: 0.8rem 2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn {
+  &-main {
+    @extend %btn-shared;
+    color: $dark-color;
+    background: $main-color;
+  }
+
+  &-light {
+    @extend %btn-shared;
+    color: $dark-color;
+    background: $light-color;
+  }
+
+  &-dark {
+    @extend %btn-shared;
+    color: $light-color;
+    background: $dark-color;
+  }
+}
+
+// Any of the buttons, inputs or links shall get the main color as background on hover. It is done as follows:
+button[class^="btn-"]:hover,
+input[class^="btn-"]:hover,
+a[class^="btn-"]:hover {
+  background: $main-color;
+}
+
+// lead
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+// Text center
+.text-center {
+  text-align: center;
+}
+
+// Padding
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+.p {
+  &-1 {
+    padding: 1rem;
+  }
+  &-2 {
+    padding: 2rem;
+  }
+  &-3 {
+    padding: 3rem;
+  }
+  &-4 {
+    padding: 4rem;
+  }
+}
+
+// Margin
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
+}
+
+.m {
+  &-1 {
+    margin: 1rem;
+  }
+  &-2 {
+    margin: 2rem;
+  }
+  &-3 {
+    margin: 3rem;
+  }
+  &-4 {
+    margin: 4rem;
+  }
+}
+
+// Bottom line
+.bottom-line {
+  height: 2px;
+  width: 3rem;
+  background: $main-color;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+// Section Title
+.section-title {
+  font-size: 2rem;
+  display: block;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+// Backgrounds
+.bg {
+  &-main {
+    background: $main-color;
+    color: #fff;
+
+    h1,
+    h2,
+    h3,
+    a {
+      color: #fff;
+    }
+  }
+
+  &-medium {
+    background: $medium-color;
+    color: #fff;
+
+    h1,
+    h2,
+    h3,
+    a {
+      color: #fff;
+    }
+  }
+
+  &-dark {
+    background: $dark-color;
+    color: #fff;
+
+    h1,
+    h2,
+    h3,
+    a {
+      color: #fff;
+    }
+  }
+
+  &-light {
+    background: $light-color;
+    color: $dark-color;
+
+    h1,
+    h2,
+    h3,
+    a {
+      color: $dark-color;
+    }
+  }
+}

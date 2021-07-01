@@ -1,0 +1,192 @@
+// For Tablets
+@media (max-width: 800px) {
+  // Header Home
+  #header-home {
+    height: 30rem; // from 100vh
+
+    .header-content {
+      padding-top: 5rem;
+    }
+  }
+}
+
+// For Smartphones
+@media (max-width: 500px) {
+  // Main Nav
+  #main-nav {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      padding: 1rem;
+    }
+  }
+
+  // Header Home and Inner
+  #header {
+    &-home {
+      height: 40rem;
+      background: $bg-image no-repeat 30% 30% / cover;
+
+      .header-content {
+        h1 {
+          font-size: 2.8rem;
+        }
+
+        p {
+          padding-top: 2rem;
+        }
+
+        a {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    &-inner {
+      height: 10rem;
+    }
+  }
+
+  // Stack grid coloumns
+  #home-a .specials,
+  #home-b .stats,
+  #home-c .process,
+  #about-d .testimonials,
+  #work-a .items,
+  #contact-b .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  // Add a subtle border between the items whenever needed after stacking
+  #home {
+    // Home
+    &-a {
+      .specials div {
+        border-bottom: 1px $light-color solid;
+        padding-bottom: 1rem;
+
+        // But not for the last one
+        &:last-child {
+          border: none;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    // Lessen the padding
+    &-b {
+      .stats div {
+        padding: 2rem 0 1rem 0;
+      }
+    }
+  }
+
+  // About
+  #about {
+    &-a {
+      .about-info {
+        grid-template-areas:
+          "bioimage"
+          "bio"
+          "aw1"
+          "aw2"
+          "aw3";
+      }
+    }
+
+    &-c {
+      .about-logos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        // padding: 0.5rem;
+
+        img {
+          width: 90%;
+          margin: auto;
+          padding: 1rem;
+        }
+      }
+
+      padding: 1rem 0;
+    }
+
+    &-d {
+      .testimonials {
+        grid-gap: 2rem;
+      }
+
+      padding-bottom: 1.5rem; // to lessen the gap between the last item and the footer
+    }
+  }
+
+  // Contact
+  #contact {
+    &-a {
+      .text-fields {
+        grid-template-areas:
+          "name"
+          "subject"
+          "email"
+          "phone"
+          "message";
+      }
+    }
+
+    &-b {
+      .contact-info {
+        // Add space and a subtle border between the items
+        div {
+          margin-bottom: 2rem;
+          padding-bottom: 2rem;
+          border-bottom: 1px solid #555;
+
+          // Not for the last child
+          &:last-child {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &-c {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // Footer
+  #main-footer {
+    height: 7rem;
+
+    .footer-content {
+      flex-direction: column;
+      padding: 1rem;
+
+      .social {
+        margin-top: 1rem; // to push down
+        margin-left: 1rem; // to push it to the right to center w.r.t the text above
+      }
+    }
+  }
+}
+
+// Landscape for header
+@media (max-height: 580px) {
+  #header-home {
+    height: 30rem;
+
+    .header-content {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}

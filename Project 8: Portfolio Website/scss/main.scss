@@ -1,0 +1,535 @@
+// Import partials
+@import "variables";
+@import "utilities";
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// GENERAL STYLES
+body {
+  font-family: "Dosis", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+
+ul {
+  list-style: none;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+img {
+  width: 100%; // to keep images inside the containers to prevent overflowing
+}
+
+// HOME PAGE
+
+// As logo and main nav are needed for both header-home and header-inner, they are styling independently (not inside #header).
+
+// Logo
+#logo {
+  width: 70px;
+  height: 70px;
+
+  // this logo is an img, if a text is used, then below two lines shall be used
+  /* color: #fff;
+  text-transform: uppercase; */
+}
+
+// Main Nav
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 1rem 1.5rem;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        border-bottom: transparent 3px solid; // this is made transparent so that on hover the border color appears. If not, the text will be pushed up on hover with border.
+        padding-bottom: 0.5rem; // gives space b/n text and the border
+        transition: border-color 0.5s;
+
+        &:hover {
+          border-color: $medium-color;
+        }
+
+        &.current {
+          border-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+// Header (Home and Inner)
+#header {
+  // Header Home
+
+  &-home {
+    background: $bg-image no-repeat center right/cover;
+    height: 100vh;
+    color: #fff;
+
+    // Header Content
+    .header-content {
+      text-align: center;
+      padding-top: 10%;
+
+      h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  // Header Inner
+  &-inner {
+    background: $bg-image no-repeat 20% 30% / cover;
+    height: 5.5rem;
+    border-bottom: 3px $main-color solid;
+  }
+}
+
+// Home Section
+#home {
+  // Section A: Specialize
+  &-a {
+    .specials {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+
+      .fas {
+        color: $main-color;
+        padding-bottom: 0.4rem; // to add space b/n icon and the heading
+      }
+    }
+  }
+
+  // Section B: Stats
+  &-b {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      li {
+        line-height: 2;
+
+        &.stats-title {
+          font-size: 1.5rem;
+        }
+
+        &.stats-number {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+
+      // Let's add the backgrounds
+      div {
+        padding: 3rem 0;
+
+        &:nth-child(odd) {
+          background: $light-color;
+        }
+
+        &:nth-child(even) {
+          background: $medium-color;
+        }
+      }
+    }
+  }
+
+  // Section C: Process
+  &-c {
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+      text-align: center;
+
+      // Process icon
+      &-icon {
+        background: $dark-color;
+        color: #fff;
+        padding-top: 2rem;
+        // margin-right: 0.5rem;
+        width: 135px;
+        height: 135px;
+        line-height: 70px;
+        border-radius: 50%;
+        text-align: center;
+        position: relative; // superscript will be absolute w.r.t this
+        transition: all 1s;
+
+        &:hover {
+          background: $main-color;
+          height: 155px;
+          width: 155px;
+          line-height: 80px;
+
+          .process-step {
+            background: $dark-color;
+          }
+        }
+      }
+
+      // Process step (superscript)
+      &-step {
+        position: absolute; // w.r.t the icon
+        top: 0;
+        right: 0;
+        background: $main-color;
+        color: #fff;
+        padding: 0.2rem;
+        font-size: 28px;
+        border-radius: 50%;
+        transition: all 1s;
+        height: 45px;
+        width: 45px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
+// ABOUT PAGE
+
+// About Sections
+#about {
+  // About A
+
+  &-a {
+    .about-info {
+      display: grid;
+      grid-template-areas:
+        "bioimage bio bio"
+        "aw1 aw2 aw3";
+      grid-gap: 1.2rem;
+    }
+
+    // Grid Area
+    .bio-image {
+      grid-area: bioimage;
+    }
+
+    .bio {
+      grid-area: bio;
+      border-left: 3px solid $main-color;
+      padding: 0.8rem;
+
+      p {
+        padding-top: 1rem;
+      }
+    }
+
+    .award-1 {
+      grid-area: aw1;
+    }
+
+    .award-2 {
+      grid-area: aw2;
+    }
+
+    .award-3 {
+      grid-area: aw3;
+    }
+
+    .award-1 .fas,
+    .award-2 .fas,
+    .award-3 .fas {
+      color: $main-color;
+      margin: 1rem;
+    }
+  }
+
+  // About B
+
+  &-b {
+    .progress {
+      height: 20px;
+      background: $medium-color;
+      border-radius: 5px;
+      margin-bottom: 0.6rem;
+      overflow: hidden; // border radius will be maintained when the medium color is fixed till the very end, else it will overflow and border radius effect will go off in the ends (when medium color is completely filled (100% width case).
+
+      div {
+        background: $main-color;
+        height: 100%; // that of the parent, 20px
+        color: #fff; // not needed unless there is some text
+        text-align: center; // not needed unless there is some text
+      }
+    }
+  }
+
+  // About C
+
+  &-c {
+    .about-logos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem;
+
+      img {
+        width: 70%; // default width is set to 100% of its container in the general styling section
+      }
+    }
+  }
+
+  // About D
+
+  &-d {
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.5rem;
+
+      p {
+        border: 1px solid $medium-color;
+        border-radius: 5px;
+        padding: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+// WORK PAGE
+
+// Work Sections
+#work {
+  // Work A
+  &-a {
+    // To create the grid and box effect
+    .items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+
+      // to set the background color and position
+      .item {
+        position: relative;
+        background: $main-color;
+        overflow: hidden;
+
+        // creating a overlay and pushing it away to bring it on hover
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          background: inherit; // main color
+          opacity: 0.9;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          // till this creates an overlay on each item. Now, we have to move this away so that we get it on hover
+          transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+          // the above code pushes it away as per the parameters. So the overlay is not on the item.
+          transition: transform 3s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        // Let's bring in the overlay on hover
+        &:hover::after {
+          transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+        }
+
+        // Let's scale the image on hover
+        &:hover .item-image {
+          // to check why '&-image' is not working instead of .item-image. This is happening when it is used after hover
+          transform: scale(1.2);
+        }
+
+        // Let's bring the text on hover
+        &:hover .item-text {
+          // Note that this is what we want to happen when we hover, by default it should be hidden, which will be set later.
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        &-image {
+          height: auto;
+          transform: translateZ(0);
+          display: block;
+          transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        &-image::before {
+          content: "";
+          display: block;
+          padding-top: 75%;
+          overflow: hidden;
+        }
+
+        &-image img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+          line-height: 0;
+        }
+
+        // Let's hide the text now (it is made visible on hover above)
+        &-text {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          opacity: 0;
+          text-align: center;
+          z-index: 1;
+          color: #fff;
+          transform: translateY(-20%);
+          transition: opacity 500ms cubic-bezier(0.2, 1, 0.3, 1),
+            transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+          transition-delay: 300ms;
+        }
+
+        &-text-wrap {
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &-text-title {
+          font-size: 2rem;
+          padding: 0 1rem;
+          margin: 5px 0 0 0;
+        }
+
+        &-text-category {
+          text-transform: uppercase;
+          font-size: 1.2rem;
+          opacity: 0.7;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// CONTACT PAGE
+
+// Contact Sections
+#contact {
+  // Contact Form
+  &-a {
+    .text-fields {
+      display: grid;
+      grid-template-areas:
+        "name email"
+        "subject phone"
+        "message message";
+      grid-gap: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      // Grid Areas
+      .name-input {
+        grid-area: name;
+      }
+
+      .subject-input {
+        grid-area: subject;
+      }
+
+      .email-input {
+        grid-area: email;
+      }
+
+      .phone-input {
+        grid-area: phone;
+      }
+
+      .message-input {
+        grid-area: message;
+        height: 100px;
+      }
+
+      .text-input {
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    button[type="submit"] {
+      width: 50%;
+    }
+  }
+
+  // Contact Info
+  &-b {
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+  }
+
+  // Tagline
+  &-c {
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+}
+// FOOTER
+#main-footer {
+  background: $dark-color;
+  color: #fff;
+  height: 5rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; // 100% of its container, which is main-footer (5 rem)
+
+    .social .fab {
+      margin-right: 1.1rem;
+      border: 2px #fff solid;
+      padding: 0.6rem;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+}
+
+// IMPORT MEDIA QUERIES
+@import "media";
