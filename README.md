@@ -5,5 +5,5 @@ This repository contains projects build using HTML5 and CSS3 (Vanilla CSS). Info
 
 Project Number | Project Name | Link for Live Demo
 ------------ | ------------- | -------------
-:01:  | Hotel Website | [Live Demo](https://focused-thompson-2db155.netlify.app/index.html)
+     01  | Hotel Website | [Live Demo](https://focused-thompson-2db155.netlify.app/index.html)
 
