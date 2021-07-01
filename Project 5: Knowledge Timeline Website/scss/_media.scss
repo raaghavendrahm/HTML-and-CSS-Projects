@@ -1,0 +1,45 @@
+@media(max-width: 900px) {
+  #timeline {
+    ul {
+      li {
+        div {
+          width: 250px; // resizes box from 400px to 250px
+        }
+
+        &:nth-child(even) div {
+          left: -284px; // brings back the left side boxes to the center line
+        }
+      }
+    }
+  }
+}
+
+// For mobile phones we want the boxes to be one below the other (no more left and right) and so do the line from center to the left
+
+@media(max-width: 600px) {
+  #timeline {
+    ul {
+      li {
+        margin-left: 20px;
+        // Initially, the margin was auto which made to have equal margin width on left and right for the center line. Now, the left is set to 20px, so it will be 20px from the left of the screen. If made zero, it will be at the edge which we don't want.
+
+        // Now, we will set the width of the boxes to be dynamic bases on the screen size.
+
+        div {
+          width: calc(100vw - 90px); // sets the width of the box to 90px less than the complete width of the view port (100vw)
+        }
+
+        &:nth-child(even) div {
+          left: 40px; // brings back the left side boxes to the center line. But the arrows to be brought to the other side. That is done below
+        }
+
+        &:nth-child(even) div::before {
+          left: -15px;
+          border-width: 8px 16px 8px 0px;
+          border-color: transparent $secondary-color transparent transparent;
+          // The above brings the arrow to the correct side, towards the line. Now the website is responsive.
+        }
+      }
+    }
+  }
+}

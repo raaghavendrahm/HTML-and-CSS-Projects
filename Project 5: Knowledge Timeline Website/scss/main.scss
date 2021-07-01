@@ -1,0 +1,157 @@
+@import 'variables';
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: $primary-color;
+  color: #fff;
+  overflow-x: hidden; // to avoid horizontal scroll bars 
+  padding-bottom: 50px;
+}
+
+#main-header {
+  background: $secondary-color;
+  padding: 4rem 0;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      font-size: 2.3rem;
+    }
+  }
+}
+
+#timeline {
+  ul {
+    // background: $primary-color;
+    padding: 50px 0;
+
+    // Creating the white line using li
+    li {
+      list-style: none;
+      position: relative; // some elements inside it will be absolute
+      width: 6px; // width of the line
+      background: #fff; // color of the line
+      margin: 0 auto; // bringing line to center
+      padding-top: 50px; // for each list item
+
+      // Line is created using li. Now, the boxes will be created using the div inside the li
+
+      div {
+        position: relative;
+        bottom: 0;
+        width: 400px;
+        padding: 1rem;
+        background: $secondary-color;
+        transition: all 0.5s ease-in-out; // for future animations
+        visibility: hidden;
+        opacity: 0;
+        // the last two properties are to hide the boxes unless they are in the viewport and the 'show' class is added using JS.
+      }
+
+      // The odd children will be on the right and even on the left
+      // Right side
+      &:nth-child(odd) div {
+        left: 40px; // all the odd boxes are moved 40px from the left (to the right) from the center line
+        transform: translateX(200px); // to keep the boxes initially away so that they will come to the line once they are in viewport and the 'show' class is added using JS.
+      }
+
+      // Left side
+      &:nth-child(even) div {
+        left: -434px; // all the even boxes are moved 434px from the right (to the left) from the center line
+        transform: translateX(-200px); // to keep the boxes initially away so that they will come to the line once they are in viewport and the 'show' class is added using JS.
+      }
+
+      // Create dots
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%; // edge will be 50% from the left of the left edge of 6px width white line
+        bottom: 0; // keeps the bottom of the dot same as that of the box.
+        width: 25px;
+        height: 25px;
+        background: inherit; // gives white color that inherits from its parent. It will be turned to secondary color once a box comes and attaches to it using 'show' class.
+        transform: translateX(-50%); // brigns the dot exactly to the center of the line
+        border-radius: 50%; // converts the dot from a square to a circle
+        transition: background 0.5s ease-in-out; // for background animation
+      }
+
+      // Now let's create the arrow joining the box to the dot. This is done by border manipulation. First add the similar properties for both left and right arrows. Then we will make the specific changes for the each side arrow
+
+      // Common properties
+      div::before {
+        content: '';
+        position: absolute;
+        bottom: 5px; // to position it a bit higher from the bottom of the box so that it matches with the center of the dot
+        width: 0;
+        height: 0; // width and height are made zero as the arrow is created from the border
+        border-style: solid; // width and color of the border are not mentioned here as they depend on the side of the arrow (left or right)
+
+        // The above crates a small square (due to border) at the the bottom left corner of each box (left and right). Now we have to change them in a way that they will become arrows to the corresponding side of the box connecting the dot.
+      }
+
+      // Right Side arrows 
+      &:nth-child(odd) div::before {
+        left: -15px; // pulls the created square outside the box 15px to the left of the box towards the white line
+
+        // Now this square must be converted to a pointer by manipulating the border
+        border-width: 8px 16px 8px 0px;
+
+        // The above creates the square at the left of the box attaching it. Now, to convert this square to a pointing arrow from the box to the dot, the corrsponding borders are colored accordingly
+        border-color: transparent $secondary-color transparent transparent;
+
+        // The above give the right side arrow
+      }
+
+      // Left Side arrows 
+      &:nth-child(even) div::before {
+        right: -15px; // pulls the created square outside the box 15px to the left of the box towards the white line
+
+        // Now this square must be converted to a pointer by manipulating the border
+        border-width: 8px 0px 8px 16px;
+
+        // The above creates the square at the left of the box attaching it. Now, to convert this square to a pointing arrow from the box to the dot, the corrsponding borders are colored accordingly
+        border-color: transparent transparent transparent $secondary-color;
+
+        // The above give the left side arrow
+
+        // Now we have all the arrows ready. Note that the arrow creation is advanced CSS and it takes time to create such CSS.
+
+        // Next, let's write media queries to make it responsive.
+      }
+
+      // Show Boxes
+
+      // Once the 'show' class is added using JS for the lis which are in the viewport, they are made visible and brought to the center line
+      &.show div {
+        transform: none; // brings the boxes from 200px and -200px to the dot.
+        visibility: visible; // makes the boxes visible
+        opacity: 1; // makes the boxes visible
+      }
+
+      // Now almost everything is ready. Last thing is to change the color of the dot from white to secondary color once a box comes and attaches to it with the addition of 'show' class
+      &.show::after {
+        background: $secondary-color;
+      }
+
+    }
+  }
+}
+
+
+// Importing Media Queries
+@import 'media';
+
+// Srcoll animation using JS
+// Now, everything is done but the scrolling animation. We want the boxes to slide in as soon as there are in the view port. This is done with JS. A class called "show" is created which does this. The code will be in "main.js" file.
