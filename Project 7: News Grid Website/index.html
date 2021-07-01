@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>NewsGrid | Latest News</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="main-nav">
+    <div class="container">
+      <img src="img/logo.png" alt="NewsGrid" class="logo">
+      <div class="social">
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+      <ul>
+        <li><a href="index.html" class="current">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Showcase -->
+  <header id="showcase">
+    <div class="container">
+      <div class="showcase-container"> <!--To make it grid-->
+        <div class="showcase-content"> <!--This div will be the grid item-->
+          <div class="category-sports">Sports</div>
+          <h1>Some Sports Article</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis illo eligendi facilis ipsam ullam voluptate hic laborum suscipit libero odio? Odio molestias necessitatibus ea maxime! Non dolorum nostrum quaerat! Facere!</p>
+          <a href="article.html" class="btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home Articles -->
+  <section id="home-articles" class="py-2">
+    <div class="container">
+      <h2>Editor Picks</h2>
+      <div class="articles-container"><!--this holds all the articles, and will be a grid-->
+        <article class="card card-grid"><!--this holds the content of each article, and will be a grid and below img and div be the grid items-->
+          <img src="img/articles/ent1.jpg" alt="">
+          <div>
+            <div class="category-ent">Entertainment</div>
+            <h3>
+              <a href="article.html">Lorem ipsum dolor sit amet.</a>
+            </h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+          </div>
+        </article>
+
+        <article class="card bg-dark"><!--this holds the content of each article, but this time will not be a grid as there is no such layout requirement (no img as well). So, img an div are removed-->
+          <div class="category-sports">Sports</div>
+          <h3>
+            <a href="article.html">Lorem ipsum dolor sit amet.</a>
+          </h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+        </article>
+
+        <article class="card"><!--this holds the content of each article, but this time it is same as the above article, but an img at the top-->
+          <img src="img/articles/tech1.jpg" alt="">
+          <div class="category-tech">Technology</div>
+          <h3>
+            <a href="article.html">Lorem ipsum dolor sit amet.</a>
+          </h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+        </article>
+
+        <article class="card"><!--this holds the content of each article, but this time it is same as the above article, but img at the bottom-->
+          <div class="category-sports">Sports</div>
+          <h3>
+            <a href="article.html">Lorem ipsum dolor sit amet.</a>
+          </h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+          <img src="img/articles/sports1.jpg" alt="">
+        </article>
+
+        <article class="card"><!--this holds the content of each article, but this time it is same as the article before the last one, that is with image at the top-->
+          <img src="img/articles/tech2.jpg" alt="">
+          <div class="category-tech">Technology</div>
+          <h3>
+            <a href="article.html">Lorem ipsum dolor sit amet.</a>
+          </h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+        </article>
+
+        <article class="card bg-primary"><!--this holds the content of each article, but this is same as the one with no img-->
+          <div class="category-sports">Sports</div>
+          <h3>
+            <a href="article.html">Lorem ipsum dolor sit amet.</a>
+          </h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+        </article>
+
+        <article class="card card-grid span-2"><!--this holds the content of each article, and will be a grid and below img and div be the grid items. This is same as the first one but the img is to the right. So, img is pushed to bottom in the markup-->
+          <div>
+            <div class="category-ent">Entertainment</div>
+            <h3>
+              <a href="article.html">Lorem ipsum dolor sit amet.</a>
+            </h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus vel odio perferendis nobis similique architecto adipisci ex ad debitis magnam, a veniam sed cupiditate in ducimus pariatur voluptatibus fugiat sit.</p>
+          </div>
+          <img src="img/articles/ent2.jpg" alt="">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="py-2">
+    <div class="container footer-container"><!--This will be a grid-->
+      <!-- We have 5 grid items created below (divs) and the last one will span across the width -->
+      <div>
+        <img src="img/logo_light.png" alt="NewsGrid">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae deleniti suscipit labore iure! Reiciendis, aspernatur? Voluptatem autem ducimus soluta aperiam?</p>
+      </div>
+
+      <div>
+        <h3>Email Newsletter</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <form name= "contact" method="POST" data-netlify="true"> <!--Attributes for form are for netlify-->
+          <input type="email" placeholder="Enter Email..">
+          <input type="submit" value="Subscribe" class="btn-primary">
+        </form>
+      </div>
+
+      <div>
+        <h3>Site Links</h3>
+        <ul class="list">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Join Our Club</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, qui?</p>
+        <a href="#" class="btn-secondary">Join Now</a>
+      </div>
+
+      <div>
+        <p>Copyright &copy; 2021, All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

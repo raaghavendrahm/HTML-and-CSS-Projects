@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>NewsGrid | Article</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="main-nav">
+    <div class="container">
+      <img src="img/logo.png" alt="NewsGrid" class="logo">
+      <div class="social">
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <!-- No current class for article page as it is not in the menu -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <section id="article">
+    <div class="container">
+      <div class="page-container"> <!--This will be a grid, and will be used in article.html also as this contains main area which holds articles to the left and any content with aside will be to the right one above the other as widgets-->
+      
+      <!--So, page-container will be styled under utility class-->
+
+        <article class="card"> <!--gives white bg and padding-->
+          <img src="img/articles/ent1.jpg" alt="">
+          <h1 class="l-heading">Lorem ipsum dolor sit amet</h1>
+
+          <!-- Let's add meta data as it is an article -->
+          <div class="meta">
+            <small> <!--It is an inline element that makes the font small-->
+              <i class="fas fa-user"></i>Written By John Doe June 24, 2021
+            </small>
+            <div class="category-ent">Entertainment</div>
+
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus ad quaerat, aperiam ut labore quidem quia ducimus iusto, architecto assumenda voluptatem deleniti velit ratione dolorum sequi accusamus quos rem, animi asperiores modi soluta omnis perferendis. Corrupti dicta alias eos aliquid consequuntur iure maiores numquam quo error facere, id iusto eius!</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor iste corporis ab doloremque nobis ratione magni, fuga ducimus eius voluptatibus est nemo sunt voluptatum dolore doloribus vitae laboriosam tempore tempora. Incidunt, aliquid voluptate vel vero architecto ut molestiae, sequi iusto expedita atque consectetur, id pariatur sed? In accusantium incidunt, placeat facere ipsam rerum aspernatur rem error illum a officia corporis beatae necessitatibus commodi obcaecati explicabo natus corrupti culpa. Magnam expedita laboriosam dignissimos eum natus iure ducimus. Vel dignissimos reprehenderit a perspiciatis itaque numquam tenetur tempora? Aliquid quidem doloribus cumque et tenetur accusantium, numquam consectetur perspiciatis vel reprehenderit fuga excepturi corporis illo. Officia eveniet exercitationem hic, excepturi tempore quas alias asperiores, iusto dolorem adipisci minus ipsam repudiandae voluptatibus voluptates! Officiis corrupti dignissimos, ipsum magni blanditiis minus nesciunt natus vel omnis cum optio minima libero adipisci deserunt cupiditate ducimus aspernatur necessitatibus autem ipsa quod voluptas? Tempora assumenda maiores corporis quisquam voluptatum dolorem!</p>
+        </article>
+
+        <!-- This will be to the right -->
+        <aside id="categories" class="card">
+          <h2>Categories</h2>
+          <ul class="list">
+            <li><a href="#"><i class="fas fa-chevron-right"></i>Sports</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i>Entertainment</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i>Technology</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i>Fashion</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i>Shopping</a></li>
+          </ul>
+        </aside>
+
+
+        <aside class="card bg-secondary">
+          <h2>Join Our Club</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, expedita.</p>
+          <a href="#" class="btn-dark btn-block">Join</a>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer id="main-footer" class="py-2">
+    <div class="container footer-container"><!--This will be a grid-->
+      <!-- We have 5 grid items created below (divs) and the last one will span across the width -->
+      <div>
+        <img src="img/logo_light.png" alt="NewsGrid">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae deleniti suscipit labore iure! Reiciendis, aspernatur? Voluptatem autem ducimus soluta aperiam?</p>
+      </div>
+
+      <div>
+        <h3>Email Newsletter</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <form name= "contact" method="POST" data-netlify="true"> <!--Attributes for form are for netlify-->
+          <input type="email" placeholder="Enter Email..">
+          <input type="submit" value="Subscribe" class="btn-primary">
+        </form>
+      </div>
+
+      <div>
+        <h3>Site Links</h3>
+        <ul class="list">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Join Our Club</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, qui?</p>
+        <a href="#" class="btn-secondary">Join Now</a>
+      </div>
+
+      <div>
+        <p>Copyright &copy; 2021, All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
