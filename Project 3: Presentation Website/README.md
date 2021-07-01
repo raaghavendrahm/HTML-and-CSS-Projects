@@ -15,7 +15,7 @@
 - A `smooth scrolling` effect is given using `JavaScript`.
 
 - CSS is precompiled using `SCSS` for the structured coding.
-- 
+
 - The website is hosted both on [Netlify](https://www.netlify.com/) and [GitHub Pages](https://pages.github.com/).
 
 - The project is a part of the learning from [Brad Traversy](https://github.com/bradtraversy)'s course on Udemy. The idea credit is his. I have understood the concepts and learned them by building this on my own with a bare minimum reference of source code (only when my efforts couldn't clear the roadblock). The way of execution is modified as per my viewpoint whenever is necessary.
