@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/main.css">
+  <title>Post Three</title>
+</head>
+<body id="home">
+  <!-- Navbar -->
+  <header class="hero blog">
+    <div id="navbar" class="navbar top">
+      <h1 class="logo">
+        <span class="text-primary"><i class="fas fa-book-open"></i>Edge</span>Ledger
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#cases">Cases</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li> 
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content">
+      <h1>Blog</h1>
+      
+    </div>
+  </header>
+
+  
+  <main> <!-- Everything except the footer will be inside main tag -->
+    <!-- Blog 3 -->
+    <section class="post">
+      <h2>Blog Post Three</h2>
+      <p class="meta">
+        <i class="fas fa-user"></i> Posted by <strong>Steve Smith</strong> | June 05, 2021
+      </p>
+      <img src="img/blog/blog3.jpg" alt="">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nulla! Nihil necessitatibus asperiores corrupti enim dolorum, cum unde saepe voluptates voluptatibus quisquam mollitia natus ut quas dolor nam! Eveniet, corporis!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae neque enim quasi esse facere! Cum nulla tempore perferendis corrupti iusto veritatis quas, nihil nobis pariatur voluptates molestias quis a laudantium unde quasi voluptatem delectus. Magni enim explicabo debitis accusantium velit neque laudantium dolor non deleniti sapiente earum voluptatibus animi perferendis ex rem nemo dolorem, consequuntur repellat vero ducimus error soluta.</p>
+      <p>Lorem ipsum dolo r, sit amet consectetur adipisicing elit. Fugit quas ab, error molestiae esse fugiat recusandae consequuntur! Illum mollitia sit itaque! Molestias laborum aperiam totam sapiente fuga est, excepturi voluptates voluptatem eaque velit! A iusto alias necessitatibus qui molestiae deserunt, quo eligendi. Nesciunt odio excepturi eaque mollitia autem, quaerat ipsum.</p>
+    </section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark">
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+      <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+      <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+      <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+    <p>Copyright &copy; 2021 - EdgeLedger</p>
+  </footer>
+
+  <!-- Our Custom Code -->
+  <!-- BACKGROUND CHANGE AND TRANSITION OF NAVBAR -->
+  <script>
+    const navbar = document.querySelector('.navbar'); // selects the navbar
+    let scrolled = false; // for bounce effect
+
+    window.onscroll = function() {
+      if(window.pageYOffset > 100) {
+        navbar.classList.remove('top');
+
+        // for bounce effect start
+        if(!scrolled) {
+          navbar.style.transform = 'translateY(-70px)'; // note that 'transition' property is added to .navbar in 'main.scss' for smooth transition.
+        }
+        setTimeout(function(){
+          navbar.style.transform = 'translateY(0)';
+          scrolled = true;
+        }, 200);
+        // for bounce effect end 
+
+      } else {
+        navbar.classList.add('top');
+
+        // for bounce effect
+        scrolled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
