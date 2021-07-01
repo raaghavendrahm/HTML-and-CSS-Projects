@@ -5,7 +5,7 @@ This repository contains projects build using HTML5 and CSS3 (Vanilla CSS). Info
 
 \# | Project Name | Link for Live Demo
 --- | ------------------------------ | -------------
-01  | :-:Hotel Website               | [Live Demo](https://focused-thompson-2db155.netlify.app/index.html)
+01  |      Hotel Website             | [Live Demo](https://focused-thompson-2db155.netlify.app/index.html)
 02  | Edge Ledger Website            | [Live Demo](https://competent-montalcini-1ff6c9.netlify.app/)
 03  | Presentation Website           | [Live Demo](https://stupefied-kowalevski-3623e5.netlify.app/)
 04  | Hamburger Menu Overlay Website | [Live Demo](https://gracious-spence-31e491.netlify.app/)
